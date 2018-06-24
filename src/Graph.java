@@ -9,21 +9,22 @@ import java.util.Map;
 
 /**
  * Creates a graph using an adjacency list given graph in a text file
+ * Author: Iden Craven
  */
 public class Graph {
     private List<Pair> adjListArray[];
     private int n;
 
-    public Graph(Boolean weighted) {
-        fillAdjacencyList(weighted);
+    public Graph(Boolean weighted, String fileName) {
+        fillAdjacencyList(weighted, fileName);
     }
 
     /**
      * Fills adjacency list with pairs that contain a vertex and a weight
      */
-    private void fillAdjacencyList(Boolean weighted) {
+    private void fillAdjacencyList(Boolean weighted, String fileName) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(new File("HilbertMaze.txt")));
+            BufferedReader br = new BufferedReader(new FileReader(new File(fileName)));
 
             n = Integer.parseInt(br.readLine());
             adjListArray = new LinkedList[(int) Math.pow(n, 2)];
